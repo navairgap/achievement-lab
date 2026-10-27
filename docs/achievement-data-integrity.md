@@ -1,3 +1,21 @@
 # achievement data integrity
 
 Keep official GitHub achievements separate from user-created profile graphics and project badges. Never infer achievement status from README images. When recording an achievement, retain its source and observation date, distinguish verified facts from user-entered notes, and handle missing fields without inventing values. Avoid storing access tokens or unnecessary personal data in fixtures.
+
+## Suggested observation record
+
+Store observations as structured records rather than inferring status from a screenshot or badge URL:
+
+```json
+{
+  "kind": "github_achievement",
+  "name": "Quickdraw",
+  "status": "observed",
+  "source_url": null,
+  "observed_at": "2026-10-27T00:00:00Z",
+  "evidence_type": "user_verified",
+  "notes": null
+}
+```
+
+This is a schema illustration, not a claim that any particular account has earned the named achievement. Use a specific source URL when evidence is available; otherwise mark the source as missing and do not upgrade the record to verified. Keep the observation date separate from the earning date, which may be unknown.
