@@ -19,3 +19,7 @@ Store observations as structured records rather than inferring status from a scr
 ```
 
 This is a schema illustration, not a claim that any particular account has earned the named achievement. Use a specific source URL when evidence is available; otherwise mark the source as missing and do not upgrade the record to verified. Keep the observation date separate from the earning date, which may be unknown.
+
+## Observation status transitions
+
+Use a small, explicit status vocabulary such as `unverified`, `observed`, and `verified`. An observation becomes verified only after a source that directly supports the achievement claim has been reviewed; a screenshot of a decorative README badge is not sufficient evidence on its own. Keep verification metadata (reviewed timestamp and evidence reference) separate from the date the achievement was earned, and retain the previous status in an audit history rather than overwriting it silently.
