@@ -27,3 +27,7 @@ Use a small, explicit status vocabulary such as `unverified`, `observed`, and `v
 ## Import validation
 
 Validate imported records at the boundary. Require a non-empty achievement name and a recognized status, parse observation timestamps as explicit UTC instants, and reject malformed URLs rather than storing them as evidence. Preserve unknown fields in an import report for review, but do not silently map unknown status values to `verified`. Deduplicate using a documented stable key and retain conflicting source records for manual resolution rather than picking one silently.
+
+## Evidence changes and revocation
+
+Evidence can become unavailable or be corrected after an observation is recorded. Keep the original observation and add a new review event when a source link changes, disappears, or no longer supports the claim. Do not silently retain a verified status after the evidence has been revoked; downgrade it to an explicitly reviewed status and preserve the reason and review timestamp. A missing source is not proof that an achievement was never earned, but it is also not sufficient evidence for verification.
